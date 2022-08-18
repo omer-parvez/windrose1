@@ -78,7 +78,7 @@ class WindroseAxes(PolarAxes):
         self.rmax = kwargs.pop("rmax", None)
         self.theta_labels = kwargs.pop("theta_labels", None)
         if self.theta_labels is None:
-            self.theta_labels = ["E", "N-E", "N", "N-W", "W", "S-W", "S", "S-E"]
+            self.theta_labels = ["E", "ENE", "NE", "NNE", "N", "NNW", "NW", "WNW", "W", "WSW", "SW", "SSW", "S", "SSE", "SE", "ESE"]
         PolarAxes.__init__(self, *args, **kwargs)
         self.set_aspect("equal", adjustable="box", anchor="C")
         self.radii_angle = 67.5
@@ -115,7 +115,7 @@ class WindroseAxes(PolarAxes):
         """
         PolarAxes.cla(self)
 
-        self.theta_angles = np.arange(0, 360, 45)
+        self.theta_angles = np.arange(0, 360, 22.5)
         self.set_thetagrids(angles=self.theta_angles, labels=self.theta_labels)
 
         self._info = {"dir": list(), "bins": list(), "table": list()}
